@@ -40,26 +40,6 @@ function MpgPlayer() {
       
     }))
 
-  // must make sure the mpg321 process closes,
-  // seems like it goes into an infinite loop or something.
-
-  var close = this.close.bind(this)
-
-  process.on('exit'  , close)
-  process.on('SIGINT', close)
-
-  // hmm, this is a problem
-  // the child process doesn't get cleaned up if you just exit.
-  // but using this will cou
-  process.on('uncaughtException', function onErr (err) {
-    if(err && 'mpg-player' === err.type) close()
-    if(process.listeners('uncaughtException').length == 1) {
-      close()
-      process.removeListener('error', onErr)
-        throw err
-    }
-  })
-
 }
 
 var p = MpgPlayer.prototype
