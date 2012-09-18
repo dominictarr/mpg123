@@ -20,7 +20,6 @@ function MpgPlayer() {
 
       if('@P' === type) {
         var event = ['end', 'pause', 'resume', 'stop'][+line.shift()]
-        console.log(event, type, line)
         self.emit(event)
       }
       else
@@ -32,11 +31,8 @@ function MpgPlayer() {
       else
       if('@F' == type) {
         line.unshift('frame')
-//        console.log(line)
         self.emit.apply(self, line)
       }
-//      else
-      console.log(type, line)
       
     }))
 
@@ -46,7 +42,6 @@ var p = MpgPlayer.prototype
 
 p._cmd = function () {
   var args = [].slice.call(arguments)
-  console.log('CMD', args)
   this.stream.write(args.join(' ') + '\n')
   return this
 }
@@ -54,7 +49,6 @@ p._cmd = function () {
 p.play = function (file) {
   return this._cmd('LOAD', file)
 }
-//no queue
 p.pause = function () {
   return this._cmd('PAUSE')
 }
@@ -67,13 +61,11 @@ p.gain = function (vol) {
 }
 
 p.close = function () {
-  console.log('exit')
   this.child.kill()
 }
 
 
 if(!module.parent) {
-  console.log(process.argv)
   new MpgPlayer()
     .play(process.argv[2])
 }
