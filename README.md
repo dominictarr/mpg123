@@ -1,4 +1,4 @@
-# mpg321
+# mpg123
 
 play mp3s by shelling out to `mpg123`.
 
