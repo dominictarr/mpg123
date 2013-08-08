@@ -1,18 +1,24 @@
 # mpg123
 
-play mp3s by shelling out to `mpg123`.
+Play mp3s by shelling out to `mpg123`
 
-
-## Ubuntu/Debian
+## Install mpg123 command line audio player
+### Ubuntu/Debian
 ```
 sudo apt-get install mpg123
 ```
-
-## OSX
+### Arch Linux
+```
+sudo pacman -Sy mpg123
+```
+### OSX
 ```
 brew install mpg123
 ```
-
+## Install mpg123 in nodejs
+```
+npm install mpg123
+```
 ## Usage
 
 ``` js
