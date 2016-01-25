@@ -47,6 +47,7 @@ var player = new Mpg();
 ### Events
 
 Usage: ```player.on('eventname', function(data){...})```
+
 | Name/Data             | Description |
 | --------------------: | ----------- |
 | 'end' (no data)       | a song ended (or, because of mpg123, a pause was attempted without any song currently playing, or a song was stopped) |
