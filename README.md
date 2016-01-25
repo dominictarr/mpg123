@@ -48,16 +48,13 @@ var player = new Mpg();
 
 Usage: ```player.on('eventname', function(data){...})```
 
-| Name/Data             | Description |
-| --------------------: | ----------- |
-| 'end' (no data)       | a song ended (or, because of mpg123, a pause was attempted without any song currently playing, or a song was stopped) |
-| 'pause' (no data)     | a pause occurred |
-
-'resume' (no data) - the song started or resumed playing
-
-'error' (error object) - mpg123 encountered an error (commonly having to do with bad source data)
-
-'frame' (frame data) - indicates playback has progressed to a new frame of the song. The format of the data is as follows:
+| Name      | Data  | Description |
+| :-------: | :---: | ----------- |
+| end | No data | A song ended (or, because of mpg123, a pause was attempted without any song currently playing, or a song was stopped) |
+| pause | No data | A pause occurred |
+| resume | No data | The song started or resumed playing |
+| error | Error object | mpg123 encountered an error (commonly having to do with bad source data) |
+| frame | Frame data | Indicates playback has progressed to a new frame of the song. The format of the data is as follows:
 
 ```data[0]``` - current frame number
 
@@ -65,11 +62,9 @@ Usage: ```player.on('eventname', function(data){...})```
 
 ```data[2]``` - current time in seconds (to 2 decimal places)
 
-```data[3]``` - remaining time in seconds (to 2 decimal places)
-
-'jump' (no data) - A jump occurred (always caused by the user, but allows for a callback hook)
-
-'volume' (percentage, 0.0-100.0) -  the volume changed (serves as a callback hook for when changing the volume)
+```data[3]``` - remaining time in seconds (to 2 decimal places) |
+| jump | No data | A jump occurred (always caused by the user, but allows for a callback hook)
+| volume | Percentage | The volume changed (serves as a callback hook for when changing the volume)
 
 
 ## License
