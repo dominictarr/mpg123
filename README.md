@@ -49,16 +49,27 @@ var player = new Mpg();
 Usage: ```player.on('eventname', function(data){...})```
 
 'end' (no data) - a song ended (or, because of mpg123, a pause was attempted without any song currently playing, or a song was stopped)
+
 'pause' (no data) - a pause occurred
+
 'resume' (no data) - the song started or resumed playing
+
 'error' (error object) - mpg123 encountered an error (commonly having to do with bad source data)
+
 'frame' (frame data) - indicates playback has progressed to a new frame of the song. The format of the data is as follows:
+
 ```data[0]``` - current frame number
+
 ```data[1]``` - number of frames remaining
+
 ```data[2]``` - current time in seconds (to 2 decimal places)
+
 ```data[3]``` - remaining time in seconds (to 2 decimal places)
+
 'jump' (no data) - A jump occurred (always caused by the user, but allows for a callback hook)
+
 'volume' (percentage, 0.0-100.0) -  the volume changed (serves as a callback hook for when changing the volume)
+
 
 ## License
 
