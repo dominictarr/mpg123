@@ -54,8 +54,7 @@ Usage: ```player.on('eventname', function(data){...})```
 | pause | No data | A pause occurred |
 | resume | No data | The song started or resumed playing |
 | error | Error object | mpg123 encountered an error (commonly having to do with bad source data) |
-| frame | Frame data | Indicates playback has progressed to a new frame of the song. The frame data is an array (length 4), structured like such:
-[<current frame number>, <remaining number of frames>, <current time in seconds>, <remaining time in seconds>] |
+| frame | Frame data | Indicates playback has progressed to a new frame of the song. The frame data is an array (length 4), structured like such: [<current frame number>, <remaining number of frames>, <current time in seconds>, <remaining time in seconds>] |
 | jump | No data | A jump occurred (always caused by the user, but allows for a callback hook)
 | volume | Percentage | The volume changed (serves as a callback hook for when changing the volume)
 
