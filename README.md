@@ -32,11 +32,17 @@ var player = new Mpg();
 ### Commands
 
 ```player.play(uri)``` - plays audio from a source
+
 ```player.pause()``` - pauses the current track
+
 ```player.stop()``` - stops the current track
+
 ```player.volume(percent)``` - sets the volume from 0-100 (mpg123 by default starts at 100%)
+
 ```player.close()``` - kills the mpg123 process
+
 ```player._cmd(...)``` - sends a custom command to the mpg123 CLI
+
 
 ### Events
 
