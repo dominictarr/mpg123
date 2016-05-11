@@ -76,8 +76,3 @@ if(!module.parent) {
     new MpgPlayer()
         .play(process.argv[2]);
 }
-
-if(!module.parent) {
-    new MpgPlayer()
-        .play(process.argv[2]);
-}
