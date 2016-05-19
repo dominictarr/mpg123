@@ -34,7 +34,7 @@ function MpgPlayer() {
                     self.emit('jump');
                     break;
                 case '@V':
-                    var percent = line[0].substring(0, line[0].length()-1);
+                    var percent = line[0].substring(0, line[0].length-1);
                     self.emit('volume', percent);
                     break;
             }
