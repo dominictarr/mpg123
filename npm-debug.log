@@ -1,0 +1,96 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.3.12
+3 info using node@v5.4.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/jacob/code/mpg123-npm',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/jacob/.npm/mpg123/0.2.0/package.tgz not in flight; packing
+9 info lifecycle mpg123@0.2.0~prepublish: mpg123@0.2.0
+10 silly lifecycle mpg123@0.2.0~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/home/jacob/.npm/mpg123/0.2.0/package.tgz',
+11 verbose tar pack   '/home/jacob/code/mpg123-npm' ]
+12 verbose tarball /home/jacob/.npm/mpg123/0.2.0/package.tgz
+13 verbose folder /home/jacob/code/mpg123-npm
+14 verbose addLocalTarball adding from inside cache /home/jacob/.npm/mpg123/0.2.0/package.tgz
+15 silly cache afterAdd mpg123@0.2.0
+16 verbose afterAdd /home/jacob/.npm/mpg123/0.2.0/package/package.json not in flight; writing
+17 verbose afterAdd /home/jacob/.npm/mpg123/0.2.0/package/package.json written
+18 silly publish { name: 'mpg123',
+18 silly publish   version: '0.2.0',
+18 silly publish   homepage: 'https://github.com/dominictarr/mpg123',
+18 silly publish   repository: { type: 'git', url: 'git://github.com/dominictarr/mpg123.git' },
+18 silly publish   dependencies: { 'event-stream': '~3.0.4', through: '~1.1.0' },
+18 silly publish   author:
+18 silly publish    { name: '\'Dominic Tarr\'',
+18 silly publish      email: 'dominic.tarr@gmail.com',
+18 silly publish      url: 'http://dominictarr.com' },
+18 silly publish   contributors: [ { name: 'Jacob Bigenwald', email: 'jrb467@cornell.edu' } ],
+18 silly publish   license: 'MIT',
+18 silly publish   readme: '# mpg123\n\nPlay mp3s by shelling out to `mpg123`\n\n## Install mpg123 command line audio player\n### Ubuntu/Debian\n```\nsudo apt-get install mpg123\n```\n### Arch Linux\n```\nsudo pacman -Sy mpg123\n```\n### OSX\n```\nbrew install mpg123\n```\n## Install mpg123 in nodejs\n```\nnpm install mpg123\n```\n## Usage\n\n(Note: if the below details are still unclear, the package code is quite short and easy to understand if you\'re apprehensive about reading through it)\n\n```js\nvar Mpg = require(\'mpg123\');\n\nvar player = new Mpg();\n```\n\n### Commands\n\n```player.play(uri)``` - plays audio from a source\n\n```player.pause()``` - pauses the current track\n\n```player.stop()``` - stops the current track\n\n```player.volume(percent)``` - sets the volume from 0-100 (mpg123 by default starts at 100%)\n\n```player.close()``` - kills the mpg123 process\n\n```player._cmd(...)``` - sends a custom command to the mpg123 CLI\n\n\n### Events\n\nUsage: ```player.on(\'eventname\', function(data){...})```\n\n| Name      | Data  | Description |\n| :-------: | :---: | ----------- |\n| end | No data | A song ended (or, because of mpg123, a pause was attempted without any song currently playing, or a song was stopped) |\n| pause | No data | A pause occurred |\n| resume | No data | The song started or resumed playing |\n| error | Error object | mpg123 encountered an error (commonly having to do with bad source data) |\n| frame | Frame data | Indicates playback has progressed to a new frame of the song. The frame data is an array (length 4), structured like such: ```[current frame number, remaining number of frames, current time in seconds, remaining time in seconds]``` |\n| jump | No data | A jump occurred (always caused by the user, but allows for a callback hook)\n| volume | Percentage | The volume changed (serves as a callback hook for when changing the volume)\n\n\n## License\n\nMIT\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '57e0910fa6cf80c21ba09f3d65ad96407aacaca6',
+18 silly publish   description: 'Play mp3s by shelling out to `mpg123`',
+18 silly publish   bugs: { url: 'https://github.com/dominictarr/mpg123/issues' },
+18 silly publish   _id: 'mpg123@0.2.0',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: '7a80e6eede493099b3db34a115a51c9cf7561ffd',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name mpg123
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/mpg123
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /home/jacob/.npm/mpg123/0.2.0/package.tgz
+26 verbose request uri https://registry.npmjs.org/mpg123
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 4:36:54 PM
+29 verbose request using bearer token for auth
+30 verbose request id baf27cfe37c06db0
+31 http request PUT https://registry.npmjs.org/mpg123
+32 http 403 https://registry.npmjs.org/mpg123
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Thu, 19 May 2016 20:36:55 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-atl6244-ATL',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1463690214.287536,VS0,VE1003',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 verbose request invalidating /home/jacob/.npm/registry.npmjs.org/mpg123 on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.2.0." : mpg123
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid mpg123
+39 verbose cwd /home/jacob/code/mpg123-npm
+40 error Linux 3.19.0-32-generic
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+42 error node v5.4.1
+43 error npm  v3.3.12
+44 error code E403
+45 error "You cannot publish over the previously published version 0.2.0." : mpg123
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
