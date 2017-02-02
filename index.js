@@ -35,6 +35,7 @@ function MpgPlayer(device, noFrames) {
 		switch(type) {
 		case '@P':
 			var event = ['end', 'pause', 'resume'][+line.shift()];
+			if(event == 'end') { self.track = self.file = null; }
 			self.emit(event);
 		break; case '@E':
 			var msg = line.join(' '), err = new Error(msg); err.type = 'mpg-player';
