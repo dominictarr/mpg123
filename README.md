@@ -65,6 +65,8 @@ Setting *noFrames* to true will disable frame updates, which may improve perform
 
 Theses variables hold info about the current song, and are safe to read only once the `format` event has fired.
 
+`player.track` - Current track name (with extention)  
+`player.file` - Full file path, exactly as it was entered into `player.play()`  
 `player.mpeg` - MPEG encoding version  
 `player.sampleRate` - Track sample rate  
 `player.channels` - Number of channels  
