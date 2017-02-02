@@ -56,7 +56,7 @@ function MpgPlayer(device, noFrames) {
 				self.sampleRate = line[2];
 				self.channels = Number(line[4]);
 				self.bitrate = Number(line[10]);
-				self._s = 2; this._cmd('SAMPLE');
+				self._s = 2; self._cmd('SAMPLE');
 			}
 		break; case '@SAMPLE':
 			if(self._s == 2) {
@@ -80,8 +80,8 @@ p._cmd = function() {
 	return this;
 }
 p.play = function(file) {
-	if(file[0] != '/' && file[1] != ':') file = __dirname+'/'+file;
-	this.track = file; return this._cmd('L', file); this._s = 1;
+	this.track = file.substr(file.lastIndexOf('/')+1);
+	this.file = file; this._s = 1; return this._cmd('L', file);
 }
 p.pause = function() {
 	return this._cmd('P');
@@ -101,6 +101,7 @@ p.seek = function(pos) {
 	pos = Math.min(Math.max(pos, 0), 1);
 	return this._cmd('K', Math.floor(pos*this.samples));
 }
+p._gpcb = [];
 p.getProgress = function(callback) {
 	this._gpcb.push(callback);
 	return this._cmd('SAMPLE');
