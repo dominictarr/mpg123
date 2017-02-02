@@ -116,3 +116,11 @@ p.close = function() {
 if(!module.parent) {
 	new MpgPlayer().play(process.argv[2]);
 }
+
+function execCmd(cmd, callback) {
+	exec(cmd, function (err, out, stderr) {
+		if(err) { console.log("Command Exec Erorr: ",err); return; }
+		if(stderr) { console.log("Command Erorr: ",stderr); return; }
+		if(callback) callback(out);
+	});
+}
