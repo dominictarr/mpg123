@@ -11,7 +11,6 @@ exports.getDevices = function(callback) {
 			var line = lines[i]; if(line[0] == 'h' && line[1] == 'w' && line[2] == ':') {
 				var name = lines[i+1]; if(name) {
 					name = name.substring(0,name.indexOf(',')).trim();
-					if(debug) console.log("DEV: '"+line+"' is '"+name+"'");
 					devices.push({name:name,address:line});
 				}
 			}
