@@ -1,8 +1,5 @@
-var spawn        = require('child_process').spawn;
-var EventEmitter = require('events').EventEmitter;
-var inherits     = require('util').inherits;
-var es           = require('event-stream');
-var through      = require('through');
+var cp = require('child_process'), EventEmitter = require('events').EventEmitter,
+inherits = require('util').inherits, es = require('event-stream'), through = require('through');
 
 inherits(MpgPlayer, EventEmitter);
 exports.MpgPlayer = MpgPlayer;
@@ -31,7 +28,7 @@ function MpgPlayer(device, noFrames) {
 	var self = this, args = ['-R'];
 	if(typeof device == 'object') args.push('-a'+device.address);
 	
-	this.child = spawn('mpg123', args); this.stream = this.child.stdin;
+	this.child = cp.spawn('mpg123', args); this.stream = this.child.stdin;
 	if(noFrames) this._cmd('SILENCE');
 	
 	this.child.stdout.pipe(es.split()).pipe(through(function(data) {
@@ -118,7 +115,7 @@ if(!module.parent) {
 }
 
 function execCmd(cmd, callback) {
-	exec(cmd, function (err, out, stderr) {
+	cp.exec(cmd, function (err, out, stderr) {
 		if(err) { console.log("Command Exec Erorr: ",err); return; }
 		if(stderr) { console.log("Command Erorr: ",stderr); return; }
 		if(callback) callback(out);
