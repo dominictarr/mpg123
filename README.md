@@ -34,7 +34,7 @@ var mpg = require('mpg123');
 
 var player = new mpg.MpgPlayer();
 
-player.play("someMusic.mp3");
+player.play(__dirname+'/'+"someMusic.mp3");
 ```
 
 ### Device Objects
