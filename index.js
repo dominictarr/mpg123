@@ -34,8 +34,8 @@ function MpgPlayer(device, noFrames) {
 		var line = data.split(' '), type = line.shift();
 		switch(type) {
 		case '@P':
-			var event = ['end', 'pause', 'resume'][+line.shift()];
-			self.emit(event); if(event == 'end') { self.track = self.file = null; }
+			var event = ['end', 'pause', 'resume'][+line.shift()]; self.emit(event);
+			if(event == 'end' && self._s != 1) { self.track = self.file = null; }
 		break; case '@E':
 			var msg = line.join(' '), err = new Error(msg); err.type = 'mpg-player';
 			if(msg.indexOf("No stream opened") != -1) {
